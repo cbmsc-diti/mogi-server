@@ -21,7 +21,8 @@
     "moment": "~2.4.0",
     "q": "~0.9.7",
     "node-gcm": "~0.9.8",
-    "fluent-ffmpeg": "~1.5.2"
+    "fluent-ffmpeg": "~1.5.2",
+    "grunt-forever": "~0.4.1"
   },
   "devDependencies": {
     "supertest": "~0.7.1",

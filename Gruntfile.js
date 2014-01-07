@@ -20,12 +20,20 @@ module.exports = function(grunt) {
       },
       test : {
         NODE_ENV : 'test'
+      },
+      production : {
+          NODE_ENV : 'prod'
+      }
+    },
+    forever : {
+      options : {
+        index: 'app.js'
       }
     },
     nodemon : {
       dev : {
         options : {
-          file :  'server.js'
+          file :  'app.js'
         }
       }
     }
@@ -34,7 +42,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-forever');
 
-  grunt.registerTask('test', ['env:test','simplemocha']);  
+  grunt.registerTask('test', ['env:test','simplemocha']);
+  grunt.registerTask('server', ['env:production', 'forever:start']);
   grunt.registerTask('default', ['env:development', 'nodemon']);
 };
