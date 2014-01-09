@@ -1,5 +1,7 @@
 .idea
 
+lib/config/env/production.js
+
 lib-cov
 *.seed
 *.log
