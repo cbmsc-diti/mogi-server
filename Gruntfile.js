@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         NODE_ENV : 'test'
       },
       production : {
-          NODE_ENV : 'prod'
+          NODE_ENV : 'production'
       }
     },
     forever : {
