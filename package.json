@@ -22,7 +22,9 @@
     "q": "~0.9.7",
     "node-gcm": "~0.9.8",
     "fluent-ffmpeg": "~1.5.2",
-    "grunt-forever": "~0.4.1"
+    "grunt-forever": "~0.4.1",
+    "node-fs": "~0.1.7",
+    "temporary": "0.0.8"
   },
   "devDependencies": {
     "supertest": "~0.7.1",

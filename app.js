@@ -9,8 +9,8 @@ var express = require('express')
   , passport = require('passport')
   , db = require('./lib/db')
   , users = require('./lib/users');
-  
-  
+
+
 // Express configuration
 
 var allowCrossDomain = function(req, res, next) {
@@ -26,12 +26,13 @@ var allowCrossDomain = function(req, res, next) {
       next();
     }
 };
-  
+
 app.set('port', process.env.PORT || 3000);
 app.use(express.logger('dev'));
 app.use(allowCrossDomain);
 app.use(express.cookieParser());
-app.use(express.bodyParser());
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(app.router);
@@ -45,8 +46,10 @@ app.use(require('./lib/users'));
 app.use(require('./lib/streams'));
 app.use(require('./lib/videos'));
 app.use(require('./lib/locations'));
+app.use(require('./lib/groups'));
 
 io.configure(function() {
+  io.set('log level', 1);
   io.set('authorization', function(handshake, done) {
     if ( !handshake.query.token ) {
       return done(null, false);
