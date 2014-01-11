@@ -1,6 +1,6 @@
 .idea
 
-lib/config/env/production.js
+lib/config/env/production.json
 
 lib-cov
 *.seed
