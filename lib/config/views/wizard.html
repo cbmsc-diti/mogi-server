@@ -1,15 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mogi-config">
 <head>
   <title></title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <style type="text/css">
+  	body {
+	  padding-top: 40px;
+	  padding-bottom: 40px;
+	  background-color: #eee;
+	}
 
+	.form-signin {
+	  max-width: 330px;
+	  padding: 15px;
+	  margin: 0 auto;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+	  margin-bottom: 10px;
+	}
+	.form-signin .checkbox {
+	  font-weight: normal;
+	}
+	.form-signin .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+	  -webkit-box-sizing: border-box;
+	     -moz-box-sizing: border-box;
+	          box-sizing: border-box;
+	}
+	.form-signin .form-control:focus {
+	  z-index: 2;
+	}
+	.form-signin input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+	.form-signin input[type="password"] {
+	  margin-bottom: 10px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+  </style>
 </head>
 <body>
-    <div id="content" class="container">
-        
-    </div>
+  <div id="content" class="container" ng-controller="ConfigCtrl">
+      <form class="form-signin" role="form" ng-submit="configure()" ng-if="!configured">
+        <h2 class="form-signin-heading">Configure your SmartPolicing Server</h2>
+        <div class="form-group">
+          <label for="adminUsername">Administrator Username</label>
+          <input type="text" class="form-control" ng-model="admin.username" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="adminUsername">Administrator Name</label>
+          <input type="text" class="form-control" ng-model="admin.name" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="adminUsername">Administrator Email</label>
+          <input type="email" class="form-control" ng-model="admin.email" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="adminUsername">Administrator Password</label>
+          <input type="password" class="form-control" ng-model="admin.password" required>
+        </div>
+        <div ng-show="errorMessage"><span class="label label-danger">Error:</span> {{errorMessage}}</div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Configure</button>
+      </form>
+      <div class="form-signin" ng-if="configured">
+        <h2 class="form-signin-heading">Server Configured</h2>
+      </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  <script>
+  angular.module('mogi-config', []);
+  angular.module('mogi-config').controller('ConfigCtrl', function($scope, $http) {
+    $scope.errorMessage = '';
+    $scope.configured = false;
+    $scope.admin = {
+      username : '',
+      name : '',
+      email : '',
+      password : ''
+    };
+
+    $scope.configure = function() {
+      $http.post('/config', {
+        admin : $scope.admin
+      }).success(function(data) {
+        $scope.configured = true;
+      }).error(function(err) {
+        $scope.errorMessage = err.message;
+      });
+    };
+  });
+  </script>
 </body>
 </html>
