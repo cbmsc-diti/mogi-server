@@ -8,7 +8,7 @@ var express = require('express')
   , io = require('socket.io').listen(server)
   , passport = require('passport')
   , db = require('./lib/db')
-  , users = require('./lib/users');
+  , config = require('./lib/config');
 
 
 // Express configuration
@@ -42,6 +42,7 @@ app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 var auth = require('./lib/auth');
 
 app.post('/token', auth.tokenEndpoint);
+app.use(require('./lib/config/wizard'));
 app.use(require('./lib/users'));
 app.use(require('./lib/streams'));
 app.use(require('./lib/videos'));
