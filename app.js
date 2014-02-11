@@ -67,6 +67,8 @@ io.configure(function() {
   });
 });
 
+app.set('sockets', io.sockets);
+
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err;
