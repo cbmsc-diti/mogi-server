@@ -69,6 +69,7 @@ io.configure(function() {
 
 app.set('sockets', io.sockets);
 
+//{force: true}
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err;
