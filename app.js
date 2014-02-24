@@ -27,6 +27,9 @@ var allowCrossDomain = function(req, res, next) {
     }
 };
 
+if (process.env.PORT == null){
+    console.warn('process.env.PORT is null!');
+}
 app.set('port', process.env.PORT || 3000);
 app.use(express.logger('dev'));
 app.use(allowCrossDomain);
