@@ -1,25 +1,36 @@
+var username = "vladeira";
+var password = "vladeira";
+var email = "vladeira@gmail.com";
+var name = "Victor Ladeira";
+
 var express = require('express'),
     app = module.exports = express(),
-    moment = require('moment'),
     db = require('./lib/db'),
     auth = require('./lib/auth');
 
 var user = db.User.build({
-    username : "bsiqueira",
-    email : "bsiqueira@gmail.com",
-    name : "Bruno Siqueira",
+    username : username,
+    email : email,
+    name : name,
     isAdmin : true
 });
 
-user.hashPassword("bsiqueira", function() {
-    user.save().complete(function(err, u){
-        var group = db.Group.build({name: "Rocinha"});
-        group.save().complete(function(err, group){
+user.hashPassword(password, function() {
+    user.save().complete(function(){
+        var group = db.Group.find({name: "Rocinha"}).complete(function(group){
+            if (group == null){
+                group = db.Group.build({name: "Rocinha"});
+                group.save().complete(function(err, group){
+                    user.setGroup(group);
+                    user.save();
+                });
+            } else {
+                user.setGroup(group);
+                user.save();
+            }
+        })
 
-                u.setGroup(group);
-                u.save();
 
-        });
     });
 });
 
