@@ -2,6 +2,7 @@ var username = "vladeira";
 var password = "vladeira";
 var email = "vladeira@gmail.com";
 var name = "Victor Ladeira";
+var groupName = "Rocinha";
 
 var express = require('express'),
     app = module.exports = express(),
@@ -17,9 +18,10 @@ var user = db.User.build({
 
 user.hashPassword(password, function() {
     user.save().complete(function(){
-        var group = db.Group.find({name: "Rocinha"}).complete(function(group){
+
+        var group = db.Group.find({name: groupName}).complete(function(group){
             if (group == null){
-                group = db.Group.build({name: "Rocinha"});
+                group = db.Group.build({name: groupName});
                 group.save().complete(function(err, group){
                     user.setGroup(group);
                     user.save();
