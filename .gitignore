@@ -1,7 +1,7 @@
 .idea
 
 lib/config/env/production.json
-
+config/config.json
 lib-cov
 *.seed
 *.log
