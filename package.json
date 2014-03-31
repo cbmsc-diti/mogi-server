@@ -22,7 +22,7 @@
     "moment": "~2.4.0",
     "q": "~0.9.7",
     "node-gcm": "~0.9.9",
-    "fluent-ffmpeg": "~1.5.2",
+    "fluent-ffmpeg": "1.6.x",
     "grunt-forever": "~0.4.1",
     "node-fs": "~0.1.7",
     "temporary": "0.0.8"
