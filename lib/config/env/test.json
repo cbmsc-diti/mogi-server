@@ -4,5 +4,11 @@
   "db" : "postgres://test:test@localhost:5432/test",
   "googleApiKey" : "AIzaSyBz7uc4_GnOXaef9BIc7PEJmE8lxSQXEH0",
   "videoStorage" : "file",
-  "configured" : true
+  "configured" : true,
+    "wowza": {
+        "port": "1935",
+        "user": "igarape",
+        "password": "igarape",
+        "path": "/live/"
+    }
 }
