@@ -10,7 +10,7 @@
       "user": "igarape",
       "password": "igarape",
       "path": "/live/",
-      "ipAddress": "localhost"
+      "ipAddress": "192.168.1.5"
 
   }
 

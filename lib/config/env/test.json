@@ -9,6 +9,7 @@
         "port": "1935",
         "user": "igarape",
         "password": "igarape",
-        "path": "/live/"
+        "path": "/live/",
+        "ipAddress": "192.168.1.5"
     }
 }
