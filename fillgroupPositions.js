@@ -48,3 +48,11 @@ db.Group.find({ where: {name: 'UPP Santa Marta'} }).success(function(group) {
         group.save();
     }
 })
+
+db.Group.find({ where: {name: 'UPP São Carlos'} }).success(function(group) {
+    if(group){
+        group.lat = -22.917558
+        group.lng = -43.199483
+        group.save();
+    }
+})
