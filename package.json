@@ -8,7 +8,7 @@
     "express": "3.x.x",
     "ejs": "0.7.x",
     "passport": "~0.1.x",
-    "passport-local": "0.1.x",
+    "passport-local": "1.0.x",
     "passport-http": "0.2.x",
     "passport-http-bearer": "0.2.x",
     "sequelize": "1.7.x",
@@ -25,7 +25,9 @@
     "fluent-ffmpeg": "1.7.1",
     "grunt-forever": "~0.4.1",
     "node-fs": "~0.1.7",
-    "temporary": "0.0.8"
+    "temporary": "0.0.8",
+    "nodemailer": "0.6.x",
+    "email-templates":"0.1.x"
   },
   "devDependencies": {
     "supertest": "~0.7.1",

@@ -11,5 +11,12 @@
         "password": "igarape",
         "path": "/live/",
         "ipAddress": "192.168.1.5"
+    },
+    "email":{
+        "from":"Igarape <igarapetech@gmail.com>",
+        "subject":"New Password",
+        "service":"Gmail",
+        "user":"igarapetech@gmail.com",
+        "pass":"igarape73"
     }
 }
