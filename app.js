@@ -54,6 +54,7 @@ app.use(require('./lib/groups'));
 
 io.configure(function() {
   io.set('log level', 1);
+  //io.set("transports", ["xhr-polling"]);
   io.set('authorization', function(handshake, done) {
     if ( !handshake.query.token ) {
       return done(null, false);
