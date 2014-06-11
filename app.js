@@ -51,6 +51,7 @@ app.use(require('./lib/streams'));
 app.use(require('./lib/videos'));
 app.use(require('./lib/locations'));
 app.use(require('./lib/groups'));
+app.use(require('./lib/pictures'));
 
 io.configure(function() {
   io.set('log level', 1);
