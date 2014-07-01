@@ -5,7 +5,9 @@ var express = require('express')
   , http = require('http')
   , app = express()
   , server = http.createServer(app)
-  , io = require('socket.io').listen(server)
+  , io = require('socket.io').listen(server, {
+        resource: /^(?:\/[\w\d_\-]+){2}\/socket\.io/
+    })
   , passport = require('passport')
   , db = require('./lib/db')
   , config = require('./lib/config');
