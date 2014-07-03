@@ -45,6 +45,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-forever');
 
   grunt.registerTask('test', ['env:test','simplemocha']);
-  grunt.registerTask('server', ['env:production', 'forever:restart']);
+  grunt.registerTask('server', ['env:production', 'forever::restart']);
   grunt.registerTask('default', ['env:development', 'nodemon']);
 };
