@@ -21,7 +21,7 @@
     "formidable": "~1.0.14",
     "moment": "~2.4.0",
     "q": "~0.9.7",
-    "node-gcm": "~0.9.9",
+    "node-gcm": "~0.9.11",
     "fluent-ffmpeg": "1.7.1",
     "grunt-forever": "~0.4.1",
     "node-fs": "~0.1.7",
