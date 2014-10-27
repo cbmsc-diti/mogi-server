@@ -69,6 +69,19 @@
           <label for="adminUsername">Administrator Password</label>
           <input type="password" class="form-control" ng-model="admin.password" required>
         </div>
+        <h3 class="form-signin-heading">Group</h3>
+        <div class="form-group">
+          <label for="groupName">Group Name</label>
+          <input type="text" class="form-control" ng-model="admin.groupName" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="groupLat">Latitude</label>
+          <input type="number" class="form-control" ng-model="admin.groupLat" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="groupLong">Longitude</label>
+          <input type="number" class="form-control" ng-model="admin.groupLng" required autofocus>
+        </div>
         <div ng-show="errorMessage"><span class="label label-danger">Error:</span> {{errorMessage}}</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Configure</button>
       </form>
